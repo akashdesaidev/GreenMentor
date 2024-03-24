@@ -1,0 +1,13 @@
+#task-card {
+    width: auto;
+}
+
+#desc {
+    word-wrap: normal;
+}
+
+#taskH2 {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

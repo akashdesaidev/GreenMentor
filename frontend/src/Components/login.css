@@ -1,0 +1,31 @@
+.login-container {
+    /* height: 100vh;
+    display: flex; */
+    margin-top: 10%;
+    align-items: center;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form button {
+    margin-left: 41%;
+    margin-top: 3%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Add more styles as needed */
