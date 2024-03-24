@@ -19,7 +19,7 @@ const CreateTask = () => {
         const token = localStorage.getItem("token");
 
         if (token) {
-            fetch(`http://localhost:8080/tasks/create`, {
+            fetch(`https://green-mentor-peach.vercel.app/tasks/create`, {
                 method: "POST",
              
                 headers: {

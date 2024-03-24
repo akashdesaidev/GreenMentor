@@ -17,7 +17,7 @@ const Login = () => {
             password
         })
 
-        fetch("http://localhost:8080/login", {
+        fetch("https://green-mentor-peach.vercel.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

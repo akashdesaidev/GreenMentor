@@ -27,7 +27,7 @@ const Signup = () => {
             password
         };
 
-        axios.post(`http://localhost:8080/signup`, user)
+        axios.post(`https://green-mentor-peach.vercel.app/signup`, user)
             .then((res) => {
              toast.success('Signup Success');
              

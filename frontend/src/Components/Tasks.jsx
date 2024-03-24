@@ -16,7 +16,7 @@ const Tasks = () => {
     const fetchData = () => {
   
 
-        fetch("http://localhost:8080/tasks", {
+        fetch("https://green-mentor-peach.vercel.app/tasks", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const Tasks = () => {
     const handleDelete = (id) => {
       
 
-        fetch(`http://localhost:8080/tasks/${id}`, {
+        fetch(`https://green-mentor-peach.vercel.app/tasks/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

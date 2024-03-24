@@ -17,7 +17,7 @@ const EditTask = () => {
     const getInputData = async () => {
         const token = localStorage.getItem("token");
 
-        await fetch(`http://localhost:8080/tasks/${id}`, {
+        await fetch(`https://green-mentor-peach.vercel.app/tasks/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const EditTask = () => {
         })
         const token = localStorage.getItem("token");
 
-        fetch(`http://localhost:8080/tasks/${id}`, {
+        fetch(`https://green-mentor-peach.vercel.app/tasks/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

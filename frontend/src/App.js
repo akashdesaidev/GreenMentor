@@ -23,6 +23,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/' element={token ? <Tasks /> : <Login />} />
         <Route path='/tasks' element={<Tasks />} />
+    
         <Route path="/editTask/:id" element={<EditTask />} />
       </Routes>
     </div>

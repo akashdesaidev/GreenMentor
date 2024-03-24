@@ -25,7 +25,7 @@ function NavComp() {
                         <Nav.Link href="/create">Create</Nav.Link>
                        {
                         !token? <Nav.Link href="/signup">Signup</Nav.Link>
-:<Nav.Link href="/profile">Profile</Nav.Link>
+:""
                        }
                        
                         <NavDropdown title={!token?"login":"Logout"} id="navbarScrollingDropdown">
