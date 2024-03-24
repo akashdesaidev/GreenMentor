@@ -12,7 +12,7 @@ router.get("/", async(req, res) => {
 })
 
 router.get("/:taskID", async(req, res) => {
-    // const userId = req.params.userId;
+    const userId = req.userId;
     const taskId = req.params.taskID;
     const task = await TaskModel.find({ _id: taskId,user_id:userId });
     res.send({ "Task": task });
@@ -48,7 +48,7 @@ router.patch("/:taskID", async(req, res) => {
     const payload = req.body;
     const user_id = req.userId;
     try {
-        const task = await TaskModel.findOne({ _id: taskId,user_id:user_id });
+        const task = await TaskModel.findOne({ _id: taskId, user_id:user_id });
 
         // if (task.user_id === user_id) {
         await TaskModel.findByIdAndUpdate(taskId, payload);
