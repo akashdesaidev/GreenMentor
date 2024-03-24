@@ -4,15 +4,17 @@ const { TaskModel } = require("../models/taskModel");
 const router = express.Router();
 
 router.get("/", async(req, res) => {
-    // const userId = req.params.userId;
-    const tasks = await TaskModel.find();
+     const userId = req.userId;
+    const tasks = await TaskModel.find({
+        user_id:userId
+    });
     res.send({ "Tasks": tasks });
 })
 
 router.get("/:taskID", async(req, res) => {
     // const userId = req.params.userId;
     const taskId = req.params.taskID;
-    const task = await TaskModel.find({ _id: taskId });
+    const task = await TaskModel.find({ _id: taskId,user_id:userId });
     res.send({ "Task": task });
 })
 
@@ -46,7 +48,7 @@ router.patch("/:taskID", async(req, res) => {
     const payload = req.body;
     const user_id = req.userId;
     try {
-        const task = await TaskModel.findOne({ _id: taskId });
+        const task = await TaskModel.findOne({ _id: taskId,user_id:user_id });
 
         // if (task.user_id === user_id) {
         await TaskModel.findByIdAndUpdate(taskId, payload);
@@ -62,10 +64,10 @@ router.patch("/:taskID", async(req, res) => {
 
 router.delete("/:taskID", async(req, res) => {
     const taskId = req.params.taskID;
+    const userId = req.userId;
 
     try {
-        const task = await TaskModel.findOne({ _id: taskId });
-
+        const task = await TaskModel.findOne({ _id: taskId ,user_id:userId});
         if (task) {
             await TaskModel.findByIdAndDelete(taskId);
             res.send("Task Deleted");
