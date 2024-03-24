@@ -4,15 +4,14 @@ import { useParams } from 'react-router-dom';
 
 const EditTask = () => {
     const { id } = useParams()
-    // console.log(id)
-    const [taskData, setTaskData] = useState([]);
+  const token  = localStorage.getItem("token")
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [status, setStatus] = useState("");
 
     useEffect(() => {
         getInputData();
-    }, [])
+    }, [token])
 
     const getInputData = async () => {
         const token = localStorage.getItem("token");
@@ -26,9 +25,7 @@ const EditTask = () => {
         })
             .then((res) => res.json())
             .then((res) => {
-          
-                setTaskData(res.Task);
-            
+                      
                 setTitle(res.Task[0].title)
                 setDescription(res.Task[0].description)
                 setStatus(res.Task[0].status)

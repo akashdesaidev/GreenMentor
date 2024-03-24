@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+
 import { toast } from 'sonner';
 
 const CreateTask = () => {
@@ -15,7 +15,7 @@ const CreateTask = () => {
         const payload = JSON.stringify({
             title, description, status
         })
-        console.log(payload)
+   
         const token = localStorage.getItem("token");
 
         if (token) {
@@ -44,7 +44,7 @@ const CreateTask = () => {
             window.location.href = "/";
         }
     }
-console.log(token)
+
 
 if(!token){
     return  <h1 style={{ "textAlign": "center", "color": "burlywood" }}>Please login first to create any task</h1>

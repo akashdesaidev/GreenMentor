@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import TaskCard from './TaskCard';
-import { Button } from 'react-bootstrap';
+
 
 
 const Tasks = () => {
     const token = localStorage.getItem("token")
     const [taskData, setTaskData] = useState([]);
-    console.log(taskData)
+  
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [token])
 
-    const fetchData = () => {
-  
+    const fetchData = () => {  
 
         fetch("https://green-mentor-peach.vercel.app/tasks", {
             method: "GET",
@@ -25,7 +24,7 @@ const Tasks = () => {
         })
             .then((res) => res.json())
             .then((res) => {
-                if (res.message == "Invalid token") {
+                if (res.message === "Invalid token") {
                     setTaskData([]);
                 } else {
                     console.log(res);
@@ -59,7 +58,7 @@ const Tasks = () => {
         <div>
             <h2 id='taskH2'>All Tasks</h2>
 {!token?  <h1 style={{ "textAlign": "center", "color": "burlywood" }}>Please login first</h1>:<div>
-{taskData?.length == 0 ? (
+{taskData?.length === 0 ? (
                 <div>
                     <h1 style={{ "textAlign": "center", "color": "burlywood" }}>No tasks to display!..... Please Add some</h1>
 
